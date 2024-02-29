@@ -171,7 +171,6 @@ namespace Shop
 
             public ProductViewModel()
             {
-                // Инициализация команды
                 IncreaseQuantityCommand = new RelayCommand(IncreaseQuantity);
                 DecreaseQuantityCommand = new RelayCommand(DecreaseQuantity, () => Quantity > 0);
             }

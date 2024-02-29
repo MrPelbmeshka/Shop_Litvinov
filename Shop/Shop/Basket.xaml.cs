@@ -7,6 +7,7 @@ using System.Linq;
 using static Shop.Main;
 using Microsoft.VisualBasic.ApplicationServices;
 using Microsoft.EntityFrameworkCore;
+using System.Windows.Controls;
 
 namespace Shop
 {
@@ -26,7 +27,6 @@ namespace Shop
             Wallete = bea;
             ba.Text = aq;
             nam.Text = n;
-
         }
 
         public void SetBasketProducts(ObservableCollection<ProductViewModel> products)
@@ -46,7 +46,11 @@ namespace Shop
             if (int.Parse(Wallete) > int.Parse(sum.Text))
             {
                 Wallete = (int.Parse(Wallete) - int.Parse(sum.Text)).ToString();
+                var context = new AppDbContext();
+                var user = context.Users.SingleOrDefault(x => x.Login == nam.Text);
                 
+                user.Balance = user.Balance - int.Parse(sum.Text);
+                context.SaveChanges();
                 MessageBox.Show("оплата успешно проведена");
                 list.ItemsSource = null;
 
@@ -72,6 +76,55 @@ namespace Shop
             Application.Current.Shutdown();
         }
 
-       
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            var context = new AppDbContext();
+            var user = context.Users.SingleOrDefault(x => x.Login == nam.Text);
+            if (popo == null)
+            {
+                MessageBox.Show("Ввндите сумму пополнения");
+            }
+            else
+            {
+                user.Balance = user.Balance + int.Parse(popo.Text);
+                context.SaveChanges();
+                Wallete = user.Balance.ToString();
+
+                Main gameWindow = new Main(int.Parse(Wallete), true, nam.Text);
+                gameWindow.Show();
+                this.Close();
+
+
+                MessageBox.Show("вы пополнили счёт");
+                
+            }
+        }
+        private void IncreaseQuantity_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = sender as Button;
+            if (button != null)
+            {
+                ProductViewModel product = button.Tag as ProductViewModel;
+                if (product != null)
+                {
+                    product.Quantity++; 
+                    CalculateTotalPrice(); 
+                }
+            }
+        }
+
+        private void DecreaseQuantity_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = sender as Button;
+            if (button != null)
+            {
+                ProductViewModel product = button.Tag as ProductViewModel;
+                if (product != null && product.Quantity > 1)
+                {
+                    product.Quantity--; 
+                    CalculateTotalPrice(); 
+                }
+            }
+        }
     }
 }

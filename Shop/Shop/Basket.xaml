@@ -41,11 +41,12 @@
                     <TextBlock FontSize="30" FontWeight="Medium" Canvas.Left="36" Canvas.Top="95" Foreground="#0B5E9E" HorizontalAlignment="Left" VerticalAlignment="Top">Добро пожаловать</TextBlock>
                     <TextBlock x:Name="nam" FontSize="30" FontWeight="Medium" Canvas.Left="313" Canvas.Top="95" Foreground="#0B5E9E" HorizontalAlignment="Left" VerticalAlignment="Center"></TextBlock>
 
-
+                    <Button  Canvas.Left="36" Canvas.Top="140" Foreground="#0B5E9E" Click="Button_Click_2">Пополнить счёт</Button>
+                    <TextBox x:Name="popo" FontSize="30" FontWeight="Medium" Canvas.Left="190" Canvas.Top="135" Foreground="#0B5E9E" HorizontalAlignment="Center" VerticalAlignment="Top" Width="71" Height="37"></TextBox>
 
                     <TextBlock FontSize="30" FontWeight="Medium" Canvas.Left="433" Canvas.Top="95" Foreground="#0B5E9E" HorizontalAlignment="Left" VerticalAlignment="Top">Баланс:</TextBlock>
                     <TextBlock x:Name="ba" FontSize="30" FontWeight="Medium" Canvas.Left="558" Canvas.Top="95" Foreground="#0B5E9E" HorizontalAlignment="Left" VerticalAlignment="Top"></TextBlock>
-                    <Border Background="#58B3F9" CornerRadius="23" Width="719" Height="392" Canvas.Left="15" Canvas.Top="154" HorizontalAlignment="Center" VerticalAlignment="Top">
+                    <Border Background="#58B3F9" CornerRadius="23" Width="719" Height="342" Canvas.Left="15" Canvas.Top="204" HorizontalAlignment="Center" VerticalAlignment="Top">
                         <Canvas>
                             <StackPanel>
                                 <StackPanel Orientation="Vertical" Height="350">
@@ -57,8 +58,15 @@
                                                     <Border Margin="5" Width="700" Padding="3" Background="#58B3F9" CornerRadius="30">
                                                         <StackPanel Orientation="Horizontal">
                                                             <Image Width="152" Height="184" Source="{Binding ImagePath}" />
-                                                            <TextBlock FontWeight="Bold" HorizontalAlignment="Center" Foreground="#0B5E9E" FontSize="17" Text="{Binding Name}" />
-                                                            <TextBlock FontWeight="Bold" HorizontalAlignment="Center" Foreground="#0B5E9E" FontSize="17" Text="{Binding Price}" />
+                                                            <StackPanel>
+                                                                <TextBlock FontWeight="Bold" HorizontalAlignment="Center" Foreground="#0B5E9E" FontSize="17" Text="{Binding Name}" />
+                                                                <TextBlock FontWeight="Bold" HorizontalAlignment="Center" Foreground="#0B5E9E" FontSize="17" Text="{Binding Price}" />
+                                                            </StackPanel>
+                                                            <StackPanel>
+                                                                <Button Content="+" Click="IncreaseQuantity_Click" Tag="{Binding}" />
+                                                                <TextBlock Text="{Binding Quantity}" />
+                                                                <Button Content="-" Click="DecreaseQuantity_Click" Tag="{Binding}" />
+                                                            </StackPanel>
                                                         </StackPanel>
                                                     </Border>
                                                 </DataTemplate>
