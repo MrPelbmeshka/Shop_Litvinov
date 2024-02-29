@@ -53,7 +53,7 @@ namespace Shop
         }
 
 
-        public Main(int b, bool tf)
+        public Main(int b, bool tf, string we)
         {
             InitializeComponent();
             DataContext = this;
@@ -63,7 +63,7 @@ namespace Shop
             {
                 list.ItemsSource = null;
             }
-
+            nam.Text = we;
             ba.Text = b.ToString();
         }
 
@@ -244,17 +244,14 @@ namespace Shop
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             string q = ba.Text;
+            string w  = q;
+            string n = nam.Text;
 
-            Basket basketWindow = new Basket(Products, q);
+            Basket basketWindow = new Basket(Products, q,w, n);
             basketWindow.Show();
             this.Close();
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            PersonalArea basketWindow = new PersonalArea();
-            basketWindow.Show();
-            this.Close();
-        }
+
     }
 }

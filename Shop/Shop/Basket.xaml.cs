@@ -17,24 +17,24 @@ namespace Shop
 
         public string Wallete { get; set; }
 
-        public Basket(ObservableCollection<ProductViewModel> products, string ba)
+        public Basket(ObservableCollection<ProductViewModel> products, string bea, string aq, string n)
         {
             InitializeComponent();
             BasketProducts = products;
             DataContext = this;
             CalculateTotalPrice();
-            Wallete = ba;
+            Wallete = bea;
+            ba.Text = aq;
+            nam.Text = n;
+
         }
 
         public void SetBasketProducts(ObservableCollection<ProductViewModel> products)
         {
             BasketProducts = products;
 
-            // После обновления коллекции вызываем CalculateTotalPrice для пересчета суммы
             CalculateTotalPrice();
         }
-
-        // Метод для вычисления общей суммы цен товаров в корзине
         private void CalculateTotalPrice()
         {
             double totalPrice = BasketProducts.Sum(product => product.Price * product.Quantity);
@@ -50,7 +50,7 @@ namespace Shop
                 MessageBox.Show("оплата успешно проведена");
                 list.ItemsSource = null;
 
-                Main gameWindow = new Main(int.Parse(Wallete), true);
+                Main gameWindow = new Main(int.Parse(Wallete), true, nam.Text);
                 gameWindow.Show();
                 this.Close();
             }
@@ -63,7 +63,7 @@ namespace Shop
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            Main gameWindow = new Main(int.Parse(Wallete), false);
+            Main gameWindow = new Main(int.Parse(Wallete), false, nam.Text);
             gameWindow.Show();
             this.Close();
         }
@@ -71,5 +71,7 @@ namespace Shop
         {
             Application.Current.Shutdown();
         }
+
+       
     }
 }

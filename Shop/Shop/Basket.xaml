@@ -23,10 +23,10 @@
                             </Border>
                             <Button BorderThickness="2" FontSize="20" Width="133" Height="56" Foreground="#0B5E9E" Style="{StaticResource MaterialDesignFlatButton}" Click="Button_Click_1">Главное</Button>
 
-                            <Button BorderThickness="2" FontSize="20" Width="122" Height="56" Foreground="#0B5E9E" Style="{StaticResource MaterialDesignFlatButton}">Корзина</Button>
+                            <Button BorderThickness="2" FontSize="20" Width="291" Height="56" Foreground="#0B5E9E" Style="{StaticResource MaterialDesignFlatButton}">Личный кабинет и Корзина</Button>
                             <Button BorderThickness="2" FontSize="20" Width="143" Height="56" Foreground="#0B5E9E" Style="{StaticResource MaterialDesignFlatButton}">Помощь</Button>
 
-                            <materialDesign:PopupBox PlacementMode="BottomAndAlignRightEdges" StaysOpen="False" Margin="220 0 0 0" VerticalAlignment="Center">
+                            <materialDesign:PopupBox PlacementMode="BottomAndAlignRightEdges" StaysOpen="False" Margin="50 0 0 0" VerticalAlignment="Center">
                                 <StackPanel>
                                     <Button ToolTip="Возникли проблемы со входом в систему" Content="Помоги мне"></Button>
 
@@ -37,13 +37,21 @@
                     </Border>
                 </Canvas>
                 <Canvas>
-                    <Border Background="#58B3F9" CornerRadius="23" Width="719" Height="407" Canvas.Left="15" Canvas.Top="105" HorizontalAlignment="Center" VerticalAlignment="Top">
+
+                    <TextBlock FontSize="30" FontWeight="Medium" Canvas.Left="36" Canvas.Top="95" Foreground="#0B5E9E" HorizontalAlignment="Left" VerticalAlignment="Top">Добро пожаловать</TextBlock>
+                    <TextBlock x:Name="nam" FontSize="30" FontWeight="Medium" Canvas.Left="313" Canvas.Top="95" Foreground="#0B5E9E" HorizontalAlignment="Left" VerticalAlignment="Center"></TextBlock>
+
+
+
+                    <TextBlock FontSize="30" FontWeight="Medium" Canvas.Left="433" Canvas.Top="95" Foreground="#0B5E9E" HorizontalAlignment="Left" VerticalAlignment="Top">Баланс:</TextBlock>
+                    <TextBlock x:Name="ba" FontSize="30" FontWeight="Medium" Canvas.Left="558" Canvas.Top="95" Foreground="#0B5E9E" HorizontalAlignment="Left" VerticalAlignment="Top"></TextBlock>
+                    <Border Background="#58B3F9" CornerRadius="23" Width="719" Height="392" Canvas.Left="15" Canvas.Top="154" HorizontalAlignment="Center" VerticalAlignment="Top">
                         <Canvas>
                             <StackPanel>
-                                <StackPanel Orientation="Vertical" Height="368">
+                                <StackPanel Orientation="Vertical" Height="350">
                                     <TextBlock Foreground="#0B5E9E" Margin="25" FontSize="35"><Run Text="Корзина"/></TextBlock>
                                     <StackPanel>
-                                        <ListBox x:Name="list" ItemsSource="{Binding BasketProducts}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Height="311" Width="627" Canvas.Left="36" Canvas.Top="117" HorizontalAlignment="Center">
+                                        <ListBox x:Name="list" ItemsSource="{Binding BasketProducts}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Height="232" Width="627" Canvas.Left="36" Canvas.Top="117" HorizontalAlignment="Center">
                                             <ListBox.ItemTemplate>
                                                 <DataTemplate>
                                                     <Border Margin="5" Width="700" Padding="3" Background="#58B3F9" CornerRadius="30">
@@ -63,7 +71,7 @@
                     </Border>
                 </Canvas>
                 <Canvas>
-                    <Border Background="#58B3F9" CornerRadius="23" Width="719" Height="81" Canvas.Left="15" Canvas.Top="537" HorizontalAlignment="Left" VerticalAlignment="Top">
+                    <Border Background="#58B3F9" CornerRadius="23" Width="719" Height="74" Canvas.Left="15" Canvas.Top="559" HorizontalAlignment="Center" VerticalAlignment="Top">
                         <Canvas>
                             <TextBlock VerticalAlignment="Center" Margin="20" FontSize="23" Foreground="#0B5E9E" FontWeight="Normal" >Итого:</TextBlock>
                             <TextBox IsEnabled="False" x:Name="sum" HorizontalAlignment="Left" VerticalAlignment="Top" Width="108" Canvas.Left="92" Canvas.Top="28">

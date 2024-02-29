@@ -35,9 +35,10 @@ namespace Shop
 
             int b = user.Balance;
             bool b2 = false;
+            string nam = user.Login;
 
 
-            Main gameWindow = new Main(b, b2);
+            Main gameWindow = new Main(b, b2, nam);
             gameWindow.Show();
             this.Close();
         }
@@ -64,9 +65,9 @@ namespace Shop
 
             int b = user.Balance;
             bool b2 = false;
+            string nam = user.Login;
 
-
-            Main gameWindow = new Main(b, b2);
+            Main gameWindow = new Main(b, b2, nam);
 
             gameWindow.Show();
             this.Close();
