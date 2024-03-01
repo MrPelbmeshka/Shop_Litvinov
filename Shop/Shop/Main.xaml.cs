@@ -167,30 +167,6 @@ namespace Shop
         {
             public event PropertyChangedEventHandler PropertyChanged;
 
-            public ICommand IncreaseQuantityCommand { get; private set; }
-
-            public ProductViewModel()
-            {
-                IncreaseQuantityCommand = new RelayCommand(IncreaseQuantity);
-                DecreaseQuantityCommand = new RelayCommand(DecreaseQuantity, () => Quantity > 0);
-            }
-
-            private void IncreaseQuantity()
-            {
-                Quantity++; // Увеличиваем количество товара
-                Price += Price; // Увеличиваем стоимость на цену товара
-            }
-
-            public ICommand DecreaseQuantityCommand { get; private set; }
-
-
-            private void DecreaseQuantity()
-            {
-                Quantity--; // Уменьшаем количество товара
-                Price -= Price; // Уменьшаем стоимость на цену товара
-            }
-
-
 
             private string imagePath;
             public string ImagePath

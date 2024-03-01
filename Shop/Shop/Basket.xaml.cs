@@ -45,18 +45,25 @@ namespace Shop
         {
             if (int.Parse(Wallete) > int.Parse(sum.Text))
             {
-                Wallete = (int.Parse(Wallete) - int.Parse(sum.Text)).ToString();
-                var context = new AppDbContext();
-                var user = context.Users.SingleOrDefault(x => x.Login == nam.Text);
-                
-                user.Balance = user.Balance - int.Parse(sum.Text);
-                context.SaveChanges();
-                MessageBox.Show("оплата успешно проведена");
-                list.ItemsSource = null;
+                if (sum.Text == "0")
+                {
+                    MessageBox.Show("в корзине ничего нет");
+                }
+                else
+                {
+                    Wallete = (int.Parse(Wallete) - int.Parse(sum.Text)).ToString();
+                    var context = new AppDbContext();
+                    var user = context.Users.SingleOrDefault(x => x.Login == nam.Text);
 
-                Main gameWindow = new Main(int.Parse(Wallete), true, nam.Text);
-                gameWindow.Show();
-                this.Close();
+                    user.Balance = user.Balance - int.Parse(sum.Text);
+                    context.SaveChanges();
+                    MessageBox.Show("оплата успешно проведена");
+                    list.ItemsSource = null;
+
+                    Main gameWindow = new Main(int.Parse(Wallete), true, nam.Text);
+                    gameWindow.Show();
+                    this.Close();
+                }        
             }
             else
             {
@@ -82,7 +89,7 @@ namespace Shop
             var user = context.Users.SingleOrDefault(x => x.Login == nam.Text);
             if (popo == null)
             {
-                MessageBox.Show("Ввндите сумму пополнения");
+                MessageBox.Show("Введите сумму пополнения");
             }
             else
             {
@@ -125,6 +132,13 @@ namespace Shop
                     CalculateTotalPrice(); 
                 }
             }
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            list.ItemsSource = null;
+            
+            sum.Text = "0";
         }
     }
 }

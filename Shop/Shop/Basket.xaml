@@ -41,6 +41,8 @@
                     <TextBlock FontSize="30" FontWeight="Medium" Canvas.Left="36" Canvas.Top="95" Foreground="#0B5E9E" HorizontalAlignment="Left" VerticalAlignment="Top">Добро пожаловать</TextBlock>
                     <TextBlock x:Name="nam" FontSize="30" FontWeight="Medium" Canvas.Left="313" Canvas.Top="95" Foreground="#0B5E9E" HorizontalAlignment="Left" VerticalAlignment="Center"></TextBlock>
 
+                    <Button  Canvas.Left="400" Canvas.Top="140" Foreground="#0B5E9E" Click="Button_Click_3" HorizontalAlignment="Left" VerticalAlignment="Center">Убрать из корзины</Button>
+
                     <Button  Canvas.Left="36" Canvas.Top="140" Foreground="#0B5E9E" Click="Button_Click_2">Пополнить счёт</Button>
                     <TextBox x:Name="popo" FontSize="30" FontWeight="Medium" Canvas.Left="190" Canvas.Top="135" Foreground="#0B5E9E" HorizontalAlignment="Center" VerticalAlignment="Top" Width="71" Height="37"></TextBox>
 
