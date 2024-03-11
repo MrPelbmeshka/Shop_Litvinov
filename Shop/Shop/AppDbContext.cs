@@ -13,7 +13,7 @@ namespace Shop
 
         protected override void OnConfiguring(DbContextOptionsBuilder db)
         {
-            db.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=UserDb;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False");
+            db.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=ShopNew;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False");
         }
     }
 }

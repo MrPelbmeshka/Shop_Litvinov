@@ -1,5 +1,4 @@
-﻿using Microsoft.VisualBasic.ApplicationServices;
-using System.Linq;
+﻿using System.Linq;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -37,10 +36,19 @@ namespace Shop
             bool b2 = false;
             string nam = user.Login;
 
-
             Main gameWindow = new Main(b, b2, nam);
-            gameWindow.Show();
-            this.Close();
+            
+            if (user.Role == 1)
+            {
+                gameWindow.Show();
+                this.Close();
+            }
+            else if (user.Role == 2) 
+            {
+                adminWindow adminWindow = new adminWindow();
+                adminWindow.Show();
+                this.Close();
+            }
         }
         private void btn_exit_Click(object sender, RoutedEventArgs e)
         {
@@ -58,7 +66,7 @@ namespace Shop
                 return;
             }
 
-            var user = new User { Login = login, Password = pass, Balance = 5000 };
+            var user = new User { Login = login, Password = pass, Balance = 5000, Role = 1 };
             context.Users.Add(user);
             context.SaveChanges();
             MessageBox.Show("ты зашёл");

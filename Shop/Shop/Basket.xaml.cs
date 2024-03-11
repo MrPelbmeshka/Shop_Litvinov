@@ -5,7 +5,6 @@ using System.Windows;
 using System.Windows.Data;
 using System.Linq;
 using static Shop.Main;
-using Microsoft.VisualBasic.ApplicationServices;
 using Microsoft.EntityFrameworkCore;
 using System.Windows.Controls;
 
